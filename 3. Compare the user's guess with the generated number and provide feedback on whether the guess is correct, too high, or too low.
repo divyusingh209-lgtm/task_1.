@@ -1,0 +1,84 @@
+/// Compare the user's guess with the generated number and provide feedback on whether the guess is correct, too high, or too low.
+
+
+import java.util.Random;
+import java.util.Scanner;
+class Game{
+
+class Game {
+    public int number;
+    public int noOfGuesses =0;
+    public int num;
+    public int getnoOfGuesses(){
+        return noOfGuesses;
+    }
+    public void setnoOfGuesses(int noOfGuesses){
+       this.noOfGuesses = noOfGuesses;
+    }
+
+     Game(){
+       Random rand = new Random();
+       this.number = rand.nextInt(100);
+    Game() {
+        Random rand = new Random();
+        this.number = rand.nextInt(100);
+    }
+   void takeuserinput()
+    {
+        System.out.println("Guess the number");
+        Scanner sc = new Scanner(System.in);
+      num=sc.nextInt();
+
+    void takeUserInput() {
+        System.out.println("Guess the number (0–99): ");
+        Scanner sc = new Scanner(System.in);
+        num = sc.nextInt();
+        sc.close(); // since we're taking input only once
+    }
+    boolean iscorrect(){
+        noOfGuesses++;
+      if(num == number){
+          System.out.println("You guess the write number" + number + "in the" + noOfGuesses + "attempts" );
+
+          return true;
+      }
+      else if(num<number){
+          System.out.println("Too low...");
+
+      }
+      else if(num>number){
+          System.out.println("Too high...");
+
+      }
+      return false;
+    boolean isCorrect() {
+        if (num == number) {
+            System.out.println("🎉 You guessed the right number: " + number);
+            return true;
+        } else if (num < number) {
+            System.out.println("Too low... the number was " + number);
+        } else {
+            System.out.println("Too high... the number was " + number);
+        }
+        return false;
+    }
+
+}
+public class guess_the_number {
+
+public class GuessTheNumber {
+    public static void main(String[] args) {
+        Game g = new Game();
+        boolean b = false;
+        while(!b) {
+            g.takeuserinput();
+            b = g.iscorrect();
+            System.out.println(b);
+        }
+
+
+        g.takeUserInput();
+        boolean b = g.isCorrect();
+        System.out.println("Result: " + b);
+    }
+}
